@@ -23,21 +23,19 @@ You can use [ImageJ](https://imagej.nih.gov/ij/download.html)  software to visua
 
 I recommend using [anaconda3](https://conda.io/docs/user-guide/install/download.html) to install any other dependency and [Pycharm](https://www.jetbrains.com/pycharm/) community version for code editing. 
 
-## Instructions
+## How to use?
 
  1. Download the dataset from [Brain Tumor Segmentation (BraTS) Challenge 2020](http://braintumorsegmentation.org/) and place it in the **reg_dataset** folder like this.
 ![FileStruct](fig/filestruct.PNG) 
  2. Run `python src/data/data_generate.py` to create z-score standardized dataset that is automatically saved in the **normDataset** folder.
- 3. Set DATASET_PATH = 'dummyDataset' in the **config.py** file and you can use **dummyDataset** to get the code running. It has MRI sequences of 5 patients.
- 4. After training the model, you can open the Tensorboard dashboard and run the generated event files by running  `tensorboard --logdir ./runs/` and going to the URL it provides OR navigating to [http://localhost:6006/](http://localhost:6006/). 
+ 3. While you wait for the dataset, set DATASET_PATH = 'dummyDataset' in the **config.py** file and you can use **dummyDataset** to get the code running. It has MRI sequences of 5 patients.
+ 4. To train the model, run
+`python main.py --mode=Train --epochs=50 --batch_size=32 --tb-prefix=testArchitecture --comment=addNewLayers --augmented=True
+`
+ 5. After training the model, you can open the Tensorboard dashboard and run the generated event files by running  `tensorboard --logdir ./runs/` and going to the URL it provides OR navigating to [http://localhost:6006/](http://localhost:6006/). 
  If you are running it on [Google Colaboratory](https://colab.research.google.com/notebooks/intro.ipynb), use the magic commands <br>`%load_ext tensorboard `
 `%tensorboard --logdir ./runs/` to visualize the graphs.
  5. You can toggle some of the 'model toggle feature' flags in the **config.py** file to experiment with toggling age input, alternate MRI sequences, stacking MRI sequences etc.
-
-## Usage
-To train the model, run
-`python main.py --mode=Train --epochs=50 --batch_size=32 --tb-prefix=testArchitecture --comment=addNewLayers --augmented=True
-`
 
 ## Proposed Methods and Results
 Take a look at the [Project report](SurvivalDaysReport.pdf) for data analysis,proposed methods, implementation details, visuals and results.
