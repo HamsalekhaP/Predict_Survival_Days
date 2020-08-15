@@ -1,5 +1,5 @@
 # Predicting Overall Survival in Patients with Glioma
-![MainbrainImage](fig/TradeM.png)
+![MainbrainImage](fig/TradeM.PNG)
 
 Gliomas are the most common types of primary tumors which occur in the brain and spinal cord. Due to their rapid growth and aggressive nature, the survival rate of patients with this diagnosis is low. Having the capability of predicting the approximate survival days from MRI sequences can aid in treatment related decisions and in turn improve patient care. In this project, we develop a 3D Convolutional Neural network(CNN) and explore the performances of classical Machine Learning methods with handcrafted features for survival regression of patients with Glioma.
 
@@ -26,7 +26,7 @@ I recommend using [anaconda3](https://conda.io/docs/user-guide/install/download.
 ## Instructions
 
  1. Download the dataset from [Brain Tumor Segmentation (BraTS) Challenge 2020](http://braintumorsegmentation.org/) and place it in the **reg_dataset** folder like this.
-![FileStruct](fig/filestruct.png) 
+![FileStruct](fig/filestruct.PNG) 
  2. Run `python src/data/data_generate.py` to create z-score standardized dataset that is automatically saved in the **normDataset** folder.
  3. Set DATASET_PATH = 'dummyDataset' in the **config.py** file and you can use **dummyDataset** to get the code running. It has MRI sequences of 5 patients.
  4. After training the model, you can open the Tensorboard dashboard and run the generated event files by running  `tensorboard --logdir ./runs/` and going to the URL it provides OR navigating to [http://localhost:6006/](http://localhost:6006/). 
